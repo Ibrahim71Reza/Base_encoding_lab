@@ -1,0 +1,3 @@
+Contact: security@example.com
+Preferred-Languages: en
+Policy: This static website performs encoding and decoding locally in the browser and has no backend processing endpoint.

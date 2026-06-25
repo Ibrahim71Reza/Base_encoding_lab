@@ -1,0 +1,30 @@
+{
+  "name": "baseforge-encoding-hub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static client-side version 1 simple single-page ultimate base encoding lab with official standards, rare encodings, magic decoding, share codes, batch mode, validation reports, and privacy-first architecture.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "npx serve out",
+    "lint": "next lint",
+    "test:encoders": "tsx tests/encoders.test.ts",
+    "test:full": "tsx tests/full.test.ts",
+    "test:all": "npm run test:encoders && npm run test:full"
+  },
+  "dependencies": {
+    "base2048": "latest",
+    "base32768": "latest",
+    "base65536": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "tsx": "latest",
+    "typescript": "latest"
+  }
+}
