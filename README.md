@@ -46,7 +46,7 @@ The interface is designed to stay simple. A new user can paste text, choose an e
 ## Quick Start
 
 ```powershell
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+git clone https://github.com/Ibrahim71Reza/Base_encoding_lab.git
 cd Base_encoding_lab
 npm install
 npm run dev
@@ -192,20 +192,6 @@ When contributing or modifying encodings, please follow these guidelines:
 3. **Use `Uint8Array` internally.** Do not use normal strings for raw binary data.
 4. **Keep processing client-side.** No API routes, Server Actions, or databases.
 5. **Always add test vectors** when adding a new encoding.
-
----
-
-## Vercel Deployment
-
-Ultimate Base Lab is perfectly suited for Vercel's static hosting because encoding happens entirely in the browser.
-
-1. Push your code to GitHub.
-2. Go to Vercel and click **Add New Project**.
-3. Import the GitHub repository.
-4. Keep the Framework Preset as **Next.js**.
-5. Deploy.
-
-*Normal users encoding and decoding text or files will not create backend compute load.*
 
 ---
 
