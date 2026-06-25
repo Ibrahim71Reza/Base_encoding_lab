@@ -46,7 +46,8 @@ The interface is designed to stay simple. A new user can paste text, choose an e
 ## Quick Start
 
 ```powershell
-cd D:\Base_encoding_lab
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+cd Base_encoding_lab
 npm install
 npm run dev
 ```
@@ -142,330 +143,21 @@ These are included for rare users and technical exploration. They are clearly la
 ## Included Pages and Tools
 
 ### Main Lab
-
-The homepage is the main encoder/decoder workspace.
-
-Users can:
-
-```txt
-Search encodings
-Pick an encoding
-Encode text
-Decode encoded data
-Switch output between text and hex
-Copy output
-Download output
-Load examples
-View compact format details
-```
+The homepage is the main encoder/decoder workspace. Search, encode, decode, switch outputs, and download files.
 
 ### Compare Tool
-
-The compare page lets users enter one input and compare outputs across multiple encodings.
-
-Useful for:
-
-```txt
-Developers
-Students
-Cybersecurity learners
-CTF users
-Debugging encoding differences
-```
+Enter one input and compare outputs across multiple encodings. Perfect for CTF players and debugging.
 
 ### Detect Tool
-
-The detector guesses possible matching encodings.
-
+Guesses possible matching encodings based on input alphabets.
 > [!NOTE]
-> **Detection is best-effort, not guaranteed.** Many encodings share similar alphabets, so the app shows possible matches instead of pretending to know with 100% certainty.
+> **Detection is best-effort, not guaranteed.** Many encodings share similar alphabets.
 
 ### Custom Base Tool
+Test custom alphabets and custom radix-style conversions.
 
-The custom base tool lets users test custom alphabets and custom radix-style conversions.
-
-Useful for:
-
-```txt
-Custom alphabets
-Educational experiments
-Alphabet validation
-Rare/custom base systems
-```
-
-### Standards Page
-
-The standards page explains which encodings are official standards and which are de facto, reference, or experimental.
-
-### Validation Page
-
-The validation page shows known test vectors and helps prove that official encodings are implemented correctly.
-
----
-
-## Tech Stack
-
-```txt
-Next.js
-TypeScript
-React
-Client-side JavaScript
-Static export / static rendering
-```
-
-The app is designed as a browser-side/static project. It does not require a Node.js server for users to encode or decode data.
-
----
-
-## Requirements
-
-Recommended:
-
-```txt
-Node.js 20 or newer
-npm
-Git
-```
-
-Check versions:
-
-```powershell
-node -v
-npm -v
-git --version
-```
-
----
-
-## Installation
-
-Open PowerShell and go to the project folder:
-
-```powershell
-cd D:\Base_encoding_lab
-```
-
-Set npm to use the public npm registry:
-
-```powershell
-npm config set registry https://registry.npmjs.org/
-```
-
-Install dependencies:
-
-```powershell
-npm install
-```
-
----
-
-## Development Server
-
-Run:
-
-```powershell
-npm run dev
-```
-
-Open:
-
-```txt
-http://localhost:3000
-```
-
-Stop the server with:
-
-```txt
-Ctrl + C
-```
-
----
-
-## Testing and Verification
-
-Run basic encoder tests:
-
-```powershell
-npm run test:encoders
-```
-
-Run full verification tests:
-
-```powershell
-npm run test:full
-```
-
-Run all tests:
-
-```powershell
-npm run test:all
-```
-
-Expected output:
-
-```txt
-All encoder tests passed.
-All full verification tests passed.
-```
-
-The full test checks official and public reference vectors, including:
-
-```txt
-RFC 4648 Base16
-RFC 4648 Base32
-RFC 4648 Base32hex
-RFC 4648 Base64
-RFC 4648 Base64url
-RFC 9285 Base45
-ZeroMQ Z85
-RFC 1924 IPv6 Base85
-Base58BTC public reference
-Round-trip checks for all loaded encodings
-```
-
-Current verified summary:
-
-```txt
-25 encoding specifications
-10 official standard profiles
-8 de facto standard profiles
-3 published reference profiles
-1 stable specification profile
-3 experimental reference profiles
-```
-
----
-
-## Production Build
-
-Run:
-
-```powershell
-npm run build
-```
-
-A successful build should show static/SSG output similar to:
-
-```txt
-○  (Static)  prerendered as static content
-●  (SSG)     prerendered as static HTML
-```
-
-This means the website is ready for static/client-side deployment.
-
----
-
-## Vercel Deployment
-
-Ultimate Base Lab is suitable for Vercel because encoding and decoding happen in the browser.
-
-Deployment steps:
-
-```txt
-1. Push the project to GitHub.
-2. Go to Vercel.
-3. Click Add New Project.
-4. Import the GitHub repository.
-5. Keep Framework Preset as Next.js.
-6. Install command: npm install
-7. Build command: npm run build
-8. Deploy.
-```
-
-Normal users encoding and decoding text or files will not create backend function load because there are no API routes or server-side encoding operations.
-
----
-
-## GitHub Upload Guide
-
-Before pushing, make sure these folders are not uploaded:
-
-```txt
-node_modules
-.next
-out
-```
-
-They should be ignored by `.gitignore`.
-
-Initialize Git:
-
-```powershell
-cd D:\Base_encoding_lab
-git init
-git add .
-git commit -m "Initial release of Ultimate Base Lab v1"
-```
-
-Connect to GitHub:
-
-```powershell
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
-git push -u origin main
-```
-
-Replace:
-
-```txt
-YOUR_USERNAME
-YOUR_REPOSITORY_NAME
-```
-
-with your actual GitHub username and repository name.
-
----
-
-## Recommended `.gitignore`
-
-```gitignore
-# Dependencies
-node_modules/
-
-# Next.js build output
-.next/
-out/
-
-# Vercel
-.vercel/
-
-# Environment files
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-.env*.local
-
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-*.log
-
-# OS files
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# Editor files
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# TypeScript cache
-*.tsbuildinfo
-
-# Optional coverage output
-coverage/
-
-# Temporary files
-tmp/
-temp/
-.cache/
-```
+### Standards & Validation Pages
+Explains which encodings are official and publicly verifies their accuracy against known test vectors.
 
 ---
 
@@ -473,174 +165,54 @@ temp/
 
 ```txt
 app/
-  architecture/
-  compare/
-  custom-base/
-  detect/
-  encodings/
-  standards/
-  validation/
-  layout.tsx
-  page.tsx
+  architecture/      # Architecture documentation
+  compare/           # Compare tool UI
+  custom-base/       # Custom alphabet testing
+  detect/            # Encoding detection logic
+  encodings/         # Individual SEO pages
+  standards/         # Standards reference page
+  validation/        # Public test vectors page
 
-components/
-  MainLab.tsx
-  EncodingSelector.tsx
-  OutputPanel.tsx
-  ShareTools.tsx
-
-lib/
-  bytes.ts
-  encodings/
-    registry.ts
-    types.ts
-    base16.ts
-    base32.ts
-    base45.ts
-    base58.ts
-    base64.ts
-    base85.ts
-    base91.ts
-    customBase.ts
-
-tests/
-  encoders.test.ts
-  full.test.ts
-
-public/
-  manifest.json
-  robots.txt
+components/          # Reusable UI elements (MainLab, Panels, etc.)
+lib/                 # Core client-side logic
+  bytes.ts           # Uint8Array handlers
+  encodings/         # Encoding engine (Base64, Base58, etc.)
+tests/               # Jest/Vitest test suites
+public/              # Static PWA assets (manifest, robots)
 ```
 
 ---
 
 ## Development Rules
 
-When adding or changing encodings:
+When contributing or modifying encodings, please follow these guidelines:
 
-```txt
-Use official standards when available.
-Do not invent outputs.
-Do not mix different variants under one name.
-Clearly label de facto and experimental encodings.
-Add test vectors when available.
-Use Uint8Array internally.
-Do not use normal strings for raw binary data.
-Keep processing client-side.
-Do not add API routes.
-Do not add Server Actions.
-Do not add database dependency.
-```
-
-Example:
-
-```txt
-Base64 RFC 4648
-Base64url RFC 4648
-MIME Base64 RFC 2045
-PEM Base64 RFC 7468
-```
-
-These should stay separate because their formatting rules are different.
+1. **Use official standards** when available. Do not invent outputs.
+2. **Do not mix variants.** (e.g., MIME Base64 and standard Base64 are separate).
+3. **Use `Uint8Array` internally.** Do not use normal strings for raw binary data.
+4. **Keep processing client-side.** No API routes, Server Actions, or databases.
+5. **Always add test vectors** when adding a new encoding.
 
 ---
 
-## How to Add a New Encoding
+## Vercel Deployment
 
-1. Add the encoder/decoder engine inside:
+Ultimate Base Lab is perfectly suited for Vercel's static hosting because encoding happens entirely in the browser.
 
-```txt
-lib/encodings/
-```
+1. Push your code to GitHub.
+2. Go to Vercel and click **Add New Project**.
+3. Import the GitHub repository.
+4. Keep the Framework Preset as **Next.js**.
+5. Deploy.
 
-2. Add the spec to:
-
-```txt
-lib/encodings/registry.ts
-```
-
-3. Include metadata:
-
-```txt
-Name
-Short name
-Status
-Standard/source
-Alphabet
-Padding rule
-Canonical rules
-Example input
-Example output
-```
-
-4. Add tests inside:
-
-```txt
-tests/encoders.test.ts
-tests/full.test.ts
-```
-
-5. Run:
-
-```powershell
-npm run test:all
-npm run build
-```
-
-Only release the encoding after tests pass.
-
----
-
-## Share Feature Notes
-
-The app includes:
-
-```txt
-Share link
-Copy share code
-Import share code
-```
-
-On localhost, some browsers may block clipboard/share features depending on browser permissions.
-
-On HTTPS deployment, share and clipboard behavior usually works better.
-
-Even if automatic share is blocked, the visible share code and share link can still be copied manually.
+*Normal users encoding and decoding text or files will not create backend compute load.*
 
 ---
 
 ## Troubleshooting
 
-### `tsx is not recognized`
-
-Run:
-
-```powershell
-npm install
-```
-
-Then run the test again.
-
-### npm uses the wrong registry
-
-Run:
-
-```powershell
-npm config set registry https://registry.npmjs.org/
-npm cache clean --force
-npm install
-```
-
 ### Windows `.next` build lock error
-
-If you see:
-
-```txt
-EBUSY: resource busy or locked
-```
-
-Run:
-
+If you see `EBUSY: resource busy or locked` during build on Windows, clear the Next.js cache:
 ```powershell
 taskkill /F /IM node.exe /T
 Remove-Item -Recurse -Force .next -ErrorAction SilentlyContinue
@@ -648,72 +220,14 @@ Remove-Item -Recurse -Force out -ErrorAction SilentlyContinue
 npm run build
 ```
 
-If `node.exe not found` appears, that is okay. It only means no Node process was running.
-
-### Old favicon still showing
-
-Browsers cache favicons strongly.
-
-Try:
-
-```txt
-Ctrl + F5
-Incognito mode
-Clear browser cache
-```
-
----
-
-## Version Rule
-
-This project is currently:
-
-```txt
-Ultimate Base Lab v1
-```
-
-Keep the public version as `v1` until the first real GitHub/Vercel launch is complete.
-
-Private/internal improvements can be made without changing the public version number.
-
----
-
-## Final Launch Checklist
-
-Before public launch, run:
-
-```powershell
-npm install
-npm run test:all
-npm run build
-```
-
-Then confirm:
-
-```txt
-Tests passed
-Build passed
-GitHub repo pushed
-Vercel deployment successful
-Share link works on HTTPS
-Favicon updated
-README updated
-No private files uploaded
-```
+### Share / Clipboard features failing
+On localhost, some browsers may block clipboard or share API features. These work reliably once deployed to HTTPS.
 
 ---
 
 ## License
 
-Recommended license:
-
-```txt
-MIT License
-```
-
-If you use MIT, add a `LICENSE` file to the repository before public release.
-
----
+This project is licensed under the **MIT License**.
 
 <div align="center">
 
